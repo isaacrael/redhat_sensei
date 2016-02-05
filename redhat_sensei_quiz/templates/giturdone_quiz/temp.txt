@@ -1,0 +1,30 @@
+
+<!--
+
+<ul>
+{% for answer in question.answer_set.all %}
+    {{ answer.id }}
+    {% if answer.answer_text == answer.correct_answer %}
+        <h3 style="color:green">Correct!...The correct answer is {{ answer.correct_answer }}</h3>
+    {% endif %}
+{% endfor %}
+</ul>
+<a href="{% url 'giturdone_quiz:detail' question.id %}">Next Question?</a>
+
+
+<h2>{{ question.question_text }}</h2>
+<h2>{{ value }}</h2>
+<ul>
+{% for answer in question.answer_set.all %}
+    {{ answer.id }}
+    {% if answer.answer_text == answer.correct_answer %}
+        <h3 style="color:green">Correct!...The correct answer is {{ answer.correct_answer }}</h3>
+    {% endif %}
+{% endfor %}
+</ul>
+<a href="{% url 'giturdone_quiz:detail' question.id %}">Next Question?</a>
+
+-->
+
+
+<br>

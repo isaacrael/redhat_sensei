@@ -1,0 +1,3 @@
+Note: Not all of the images in this directory are used in this application
+the images not used have been left in this directory to change the look
+of the app in future versions.

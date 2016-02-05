@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git Quiz Results</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: purple;
+    background-color: transparent;
+    text-decoration: underline;
+}
+</style>
+
+</head>
+<body>
+<div class="w3-container w3-red">
+{% if request.user.is_authenticated %}
+  <h1>Welcome {% if request.user.first_name %}
+      {{ request.user.first.name }}
+      {% else %}
+      {{ request.user.username }}
+      {% endif %}
+      - To Git Ur Done<br>
+      <img src="/static/images/git.png" style="width:50px;height:50px;">
+  </h1>
+{% else %}
+<h1> Welcome To Git Ur Done</h1> <img src="/static/images/git.png" style="width:50px;height:50px;">
+{% endif %}
+</div>
+
+
+
+<div class="w3-container w3-yellow">
+<img src="/static/images/dj.png" style="width:25" align="right">
+<br>
+{% if request.user.is_authenticated %}
+<h3>
+<a href="http://localhost:8000/" target="_blank">About</a>   <a href="http://localhost:8000/quiz/" target="_blank">Quiz</a>  <a href="http://localhost:8000/quiz/resources/" target="_blank">Resources</a>  <a href="http://localhost:8000/account/logout" target="_blank">Logout</a>
+</h3>
+{% else %}
+<h3>
+<a href="http://localhost:8000/" target="_blank">About</a>   <a href="http://localhost:8000/account/register" target="_blank">Register</a>    <a href="http://localhost:8000/account/login/"target="_blank" >Login</a>
+</h3>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+    {% if correct_answer == answer %}
+        <h3 style="color:black">Correct!...The correct answer is</h3><h3 style="color:green">{{ answer }}</h3>
+    {% else %}
+        <h3 style="color:red">Wrong!</h3><br>
+        <h3 style="color:black">The correct answer is</h3><h3 style="color:green"> {{ correct_answer }}</h3><br>
+        <h3 style="color:black"> Your answer was {{ answer }}</h3>
+    {% endif %}
+<h3>
+<br>
+<br>
+ <a href="http://localhost:8000/quiz/" target="_blank">Return To Questions</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</center>
+</p>
+</div>
+<div class="w3-container w3-blue">
+  <h5>
+
+  </h5>
+  <p><center>Web Design & Application Development By - <a href="http://facebook.com/gil.rael.37/" target="_blank">Gil Rael</a><br>
+Software Developed By A Nerd For Nerds</center></p>
+</div>
+</head>
+</body>
+</html>
