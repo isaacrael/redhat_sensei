@@ -32,9 +32,11 @@ body {
 	font: 12px arial, sans-serif;
 	color: #F09361;
 }
+
 #wrapper {
 	background: url(/static/images/modelportfolio_29.png);
 }
+
 #header {
 	background: 6px 0 url(/static/images/header_bg.png) repeat-x;
 }
@@ -93,6 +95,7 @@ h1 span {
 	background: #760202;
 	border: 1px solid #6A0101;
 	width: 426px;
+/*	center:*/
 	margin: 48px 28px 8px 28px;
 }
 #content .i {
