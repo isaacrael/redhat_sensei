@@ -20,3 +20,12 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request, 'index.html')
+
+def redhat_sensei_quiz(request):
+#     latest_question_list = test
+#    latest_question_list = Question.objects.order_by('?')
+#    value = latest_question_list[0]
+#    q = smart_text(value)
+#     context = {'latest_question_list': latest_question_list}
+#    return render(request, 'redhat_sensei_quiz/index.html', context)
+     return render(request, 'redhat_sensei_quiz/index.html')
