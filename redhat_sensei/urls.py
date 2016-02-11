@@ -6,8 +6,9 @@ urlpatterns = [
     # url(r'^$', 'redhat_sensei.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^account/', include('registration.backends.default.urls')),
-#    url(r'^quiz/', include('redhat_sensei_quiz.urls', namespace="redhat_sensei")),
     url(r'^$', 'redhat_sensei_quiz.views.index', name='index'),
+    url(r'^quiz/', include('redhat_sensei_quiz.urls', namespace="redhat_sensei_quiz")),
+#    url(r'^quiz/', 'redhat_sensei_quiz.views.git_quiz', name='git_quiz'),
     url(r'^admin/', include(admin.site.urls)),
 
 
