@@ -11,32 +11,42 @@
     <h1><span>RED HAT LINUX SENSEI</span></h1>
   </div>
   <div id="nav">
+      {% if request.user.is_authenticated %}
     <ul>
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
-<!--      <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
+      <li><a href="http://localhost:8000/quiz/"><em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
+       {% else %}
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
       <li><a href="http://localhost:8000/account/login/"><em>L</em>OGIN</a></li>
-      logout page goes here-->
+       {% endif %}
 
     </ul>
   </div>
   <div id="body">
     <div id="content">
       <div class="i">
-        <h2><strong>Welcome</strong> To Red Hat Linux Sensei</h2>
-        <p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
-        The application is designed and developed by Gil Rael using the Python Django web framework.
+          {% if request.user.is_authenticated %}
+        <h2><strong>Welcome {% if request.user.first_name %}</strong> To Red Hat Linux Sensei</h2>
+                {{ request.user.first.name }}
+                {% else %}
+                {{ request.user.username }}
+                {% endif %}
+          {% else %}
+          <h2><strong>Welcome </strong> To Red Hat Linux Sensei</h2>
+          {% endif %}
 
-        <h2>Coming Soon My Friends!</h2>
+  <!--      <p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
+        The application is designed and developed by Gil Rael using the Python Django web framework.</p>-->
+
+        <h2><center><br></br><br></br>Coming Soon My Friends!</center></h2>
         </p>
         <br>
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-Click On A Question Below
+<center><h2>Click On A Question Below</h2></center>
 <br>
 <br>
 <br>
@@ -52,18 +62,6 @@ Click On A Question Below
 {% endif %}
 
 
-<!--        <h2 class="h"><span class="htop">TOP</span> <span class="hproject">PROJECT</span> <span class="hof">of</span> <span class="h2006">2006</span></h2>
-        <div id="picbox-left"> <img src="/static/images/pic_1.png" width="130" height="63" alt="Pic 1" /> </div>
-        <p>If you're looking for beautiful and professionally made templates you can find them at <a href="http://www.templatebeauty.com">Template Beauty</a>.</p>
-        <p>Even more websites all about website templates on <a href="http://www.justwebtemplates.com">Just Web Templates</a>.</p>
-        <h2><strong>My</strong> gallery</h2>
-        <div id="gallery">
-          <div id="bigpic"> <a href="#"><img src="/static/images/pic_2.png" width="180" height="112" alt="Pic 2" /></a> </div>
-          <div class="smallpic" id="pica"> <a href="#"><img src="/static/images/pic_3.png" width="63" height="43" alt="Pic 3" /></a> </div>
-          <div class="smallpic" id="picb"> <a href="#"><img src="/static/images/pic_4.png" width="63" height="43" alt="Pic 4" /></a> </div>
-          <div class="smallpic" id="picc"> <a href="#"><img src="/static/images/pic_5.png" width="63" height="43" alt="Pic 5" /></a> </div>
-          <div class="smallpic" id="picd"> <a href="#"><img src="/static/images/pic_6.png" width="63" height="43" alt="Pic 6" /></a> </div>
-          <div class="clear"></div>-->
         </div>
       </div>
     </div>
