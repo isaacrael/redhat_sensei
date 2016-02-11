@@ -12,9 +12,9 @@
   </div>
   <div id="nav">
     <ul>
-      <li class="first"><a href="http://redhatsensei.isaacrael.webfactional.com/"><em>A</em>BOUT</a></li>
-<!--      <li><a href="http://redhatsensei.isaacrael.webfactional.com/account/register/"><em>R</em>EGISTER</a></li>
-      <li><a href="http://redhatsensei.isaacrael.webfactional.com/account/login/"><em>L</em>OGIN</a></li>
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+<!--      <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
+      <li><a href="http://localhost:8000/account/login/"><em>L</em>OGIN</a></li>
       logout page goes here-->
 
     </ul>
@@ -36,6 +36,22 @@
         <br>
         <br>
         <br>
+Click On A Question Below
+<br>
+<br>
+<br>
+<br>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'redhat_sensei_quiz:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Questions are available.</p>
+{% endif %}
+
+
 <!--        <h2 class="h"><span class="htop">TOP</span> <span class="hproject">PROJECT</span> <span class="hof">of</span> <span class="h2006">2006</span></h2>
         <div id="picbox-left"> <img src="/static/images/pic_1.png" width="130" height="63" alt="Pic 1" /> </div>
         <p>If you're looking for beautiful and professionally made templates you can find them at <a href="http://www.templatebeauty.com">Template Beauty</a>.</p>
