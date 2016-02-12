@@ -1,0 +1,13 @@
+<!--
+<center>
+<h2>{{ question.question_text }}</h2>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'redhat_sensei_quiz:results' question.id %}" method="post">
+{% csrf_token %}
+  <table>{{ form.as_table }}</table>
+   <p><label for="id_name"> Type Your Answer:</label>
+<input class="textinput textInput form-control" id="id_name" maxlength="100" name="textfield" type="text" /></p>
+  <input type="submit" value="Submit" />
+</form>
+</center>
+-->
