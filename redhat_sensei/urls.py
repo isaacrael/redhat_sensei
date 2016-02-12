@@ -7,6 +7,8 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
     url(r'^account/', include('registration.backends.default.urls')),
     url(r'^$', 'redhat_sensei_quiz.views.index', name='index'),
+    url(r'^quiz_selection/', 'redhat_sensei_quiz.views.quiz_selection', name='quiz_selection'),
+    url(r'^quiz_selection/', include('redhat_sensei_quiz.urls', namespace="redhat_sensei_quiz")),
     url(r'^quiz/', include('redhat_sensei_quiz.urls', namespace="redhat_sensei_quiz")),
 #    url(r'^quiz/', 'redhat_sensei_quiz.views.git_quiz', name='git_quiz'),
     url(r'^admin/', include(admin.site.urls)),
