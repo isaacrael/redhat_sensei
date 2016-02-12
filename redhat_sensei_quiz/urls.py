@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     # ex: /quiz/
+    url(r'^quiz_selection/', views.quiz_selection, name='quiz_selection'),
     url(r'^$', views.git_quiz, name='index'),
 #    url(r'^resources/', views.git_resources, name='resources'),
     # ex: /quiz/5/
