@@ -107,7 +107,8 @@ STATIC_URL = '/static/'
 ACCOUNT_ACTIVATION_DAYS = 180
 REGISTRATION_AUTO_LOGIN = True
 # Note the Login_Redirect below may need to change to a different page
-LOGIN_REDIRECT_URL = '/quiz/'
+#LOGIN_REDIRECT_URL = '/quiz/'
+LOGIN_REDIRECT_URL = '/quiz_selection/'
 LOGOUT_REDIRECT_URL = '/account/logout'
 
 # Email Backend
