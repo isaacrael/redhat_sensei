@@ -21,6 +21,9 @@ from django.utils.encoding import *
 def index(request):
     return render(request, 'index.html')
 
+def quiz_selection(request):
+    return render(request, 'redhat_sensei_quiz/quiz_selection.html')
+
 def git_quiz(request):
     latest_question_list = Question.objects.order_by('?')
 #    value = latest_question_list[0]
@@ -32,9 +35,15 @@ def git_quiz(request):
 #def git_resources(request):
 #        return render(request, 'giturdone_quiz/resources.html')
 
-def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'redhat_sensei_quiz/detail.html', {'question': question})
+def detail(request, textfield):
+    if request.method == 'POST':
+        user_answer = request.POST.get('textfield', None)
+    if user_answer == 'Account Administration':
+       latest_question_list = 'True'
+    else:
+       latest_question_list = 'False'
+    context = {'latest_question_list': latest_question_list, 'answer': user_answer}
+    return render(request, 'redhat_sensei_quiz/detail.html', context)
 
 """
 # Note: The answer function below is not being used but is left here
@@ -62,6 +71,8 @@ def answer(request, question_id):
 
 """
 
+
+
 def results(request, question_id):
     latest_question_list = Question.objects.order_by('?')
     if request.method == 'POST':
@@ -80,3 +91,15 @@ def results(request, question_id):
     return render(request, 'redhat_sensei_quiz/results.html', context)
 
 
+
+"""
+def results(request):
+    if request.method == 'POST':
+        user_answer = request.POST.get('textfield', None)
+    if user_answer == 'Account Administration':
+       latest_question_list = 'True'
+    else:
+       latest_question_list = 'False'
+    context = {'latest_question_list': latest_question_list, 'answer': user_answer}
+    return render(request, 'redhat_sensei_quiz/results.html', context)
+"""
