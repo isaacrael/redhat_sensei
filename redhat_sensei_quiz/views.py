@@ -25,16 +25,91 @@ def quiz_selection(request):
     return render(request, 'redhat_sensei_quiz/quiz_selection.html')
 
 def git_quiz(request):
-    latest_question_list = Question.objects.order_by('?')
+    if request.method == 'POST':
+        gils_answer = request.POST.get('textfield', None)
+    elif request.method != 'POST':
+        gils_answer == "None"
+    if gils_answer == '1':
+        temp_latest_question_list = Question.objects.filter(category="Account Administration")
+    if gils_answer == '2':
+        temp_latest_question_list = Question.objects.filter(category="UNIX Commands")
+    if gils_answer == '3':
+        temp_latest_question_list = Question.objects.filter(category="Networking")
+    latest_question_list = temp_latest_question_list
+
+
+    #value = smart_text(user_answer)
+    context = {'gils_answer': gils_answer, 'latest_question_list': latest_question_list}
+    return render(request, 'redhat_sensei_quiz/index.html', context)
+
+def account_administration(request):
+    account_administration_question_list = Question.objects.filter(category="Account Administration")
 #    value = latest_question_list[0]
 #    q = smart_text(value)
-    context = {'latest_question_list': latest_question_list}
+    context = {'account_administration_question_list': account_administration_question_list}
+    return render(request, 'redhat_sensei_quiz/account_administration.html', context)
+
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'redhat_sensei_quiz/detail.html', {'question': question})
+
+
+
+def results(request, question_id):
+    account_administration_question_list = Question.objects.order_by('?')
+    if request.method == 'POST':
+        question = get_object_or_404(Question, pk=question_id)
+        user_answer = request.POST.get('textfield', None)
+        # Get the question object
+        q = Question.objects.get(pk=question_id)
+        # Get all the answers associated with the question object
+        a = q.answer_set.all()
+        # Get the first element in the list of answers
+        value = a[0]
+        # smart_text is a django utility that converts an object to a unicode string
+        correct_answer = smart_text(value)
+        context = {'account_administration_question_list': account_administration_question_list, 'answer': user_answer, 'question': question, 'correct_answer': correct_answer}
+        value = "gil"
+    return render(request, 'redhat_sensei_quiz/results.html', context)
+
+
+
+
+
+
+
+
+"""
+def git_quiz(request):
+#    if request.method == 'POST':
+    user_answer = request.POST.get('textfield', None)
+        # Get the question object
+#        q = Question.objects.get(pk=question_id)
+        # Get all the answers associated with the question object
+#        a = q.answer_set.all()
+        # Get the first element in the list of answers
+#        value = a[0]
+        # smart_text is a django utility that converts an object to a unicode string
+#        correct_answer = smart_text(value)
+#        context = {'latest_question_list': latest_question_list, 'answer': user_answer, 'question': question, 'correct_answer': correct_answer}
+#        value = "gil"
+
+#    value = latest_question_list[0]
+#    q = smart_text(value)
+    context = {'answer': user_answer}
     return render(request, 'redhat_sensei_quiz/index.html', context)
+"""
+
+
+
+
 
 
 #def git_resources(request):
 #        return render(request, 'giturdone_quiz/resources.html')
 
+
+"""
 def detail(request, textfield):
     if request.method == 'POST':
         user_answer = request.POST.get('textfield', None)
@@ -44,6 +119,9 @@ def detail(request, textfield):
        latest_question_list = 'False'
     context = {'latest_question_list': latest_question_list, 'answer': user_answer}
     return render(request, 'redhat_sensei_quiz/detail.html', context)
+"""
+
+
 
 """
 # Note: The answer function below is not being used but is left here
@@ -73,22 +151,10 @@ def answer(request, question_id):
 
 
 
-def results(request, question_id):
-    latest_question_list = Question.objects.order_by('?')
-    if request.method == 'POST':
-        question = get_object_or_404(Question, pk=question_id)
-        user_answer = request.POST.get('textfield', None)
-        # Get the question object
-        q = Question.objects.get(pk=question_id)
-        # Get all the answers associated with the question object
-        a = q.answer_set.all()
-        # Get the first element in the list of answers
-        value = a[0]
-        # smart_text is a django utility that converts an object to a unicode string
-        correct_answer = smart_text(value)
-        context = {'latest_question_list': latest_question_list, 'answer': user_answer, 'question': question, 'correct_answer': correct_answer}
-        value = "gil"
-    return render(request, 'redhat_sensei_quiz/results.html', context)
+
+
+
+
 
 
 
