@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Red Hat Linux Sensei Account Administration Quiz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <h1><span>RED HAT LINUX SENSEI</span></h1>
+  </div>
+  <div id="nav">
+      {% if request.user.is_authenticated %}
+    <ul>
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
+      <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
+       {% else %}
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
+      <li><a href="http://localhost:8000/account/login/"><em>L</em>OGIN</a></li>
+       {% endif %}
+
+    </ul>
+  </div>
+  <div id="body">
+    <div id="content">
+      <div class="i">
+          {% if request.user.is_authenticated %}
+        <h2><strong>Welcome {% if request.user.first_name %}</strong> To Red Hat Linux Sensei</h2>
+                {{ request.user.first.name }}
+                {% else %}
+                {{ request.user.username }}
+                {% endif %}
+          {% else %}
+          <h2><strong>Welcome </strong> To Red Hat Linux Sensei</h2>
+          {% endif %}
+
+  <!--      <p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
+        The application is designed and developed by Gil Rael using the Python Django web framework.</p>-->
+
+        <h2><center><br></br><br></br>Coming Soon My Friends!</center></h2>
+        </p>
+        <br>
+<center><h2>Red Hat Linux Account Administration -> Click On A Question Below</h2></center>
+<br>
+<br>
+<br>
+<br>
+{% if account_administration_question_list %}
+    <ul>
+    {% for question in account_administration_question_list %}
+        <li><a href="{% url 'redhat_sensei_quiz:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Questions are available.</p>
+{% endif %}
+
+
+        </div>
+      </div>
+    </div>
+    <div id="copyright"> &copy; Copyright 2016 | Web Design & Software Application Development By <a target=_blank href="http://www.gilrael.com">Gil Rael</a></div>
+  </div>
+  <div id="footer"> </div>
+</div>
+</body>
+</html>
