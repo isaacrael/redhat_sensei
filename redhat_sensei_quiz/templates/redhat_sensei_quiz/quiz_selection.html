@@ -41,29 +41,21 @@
   <!--      <p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
         The application is designed and developed by Gil Rael using the Python Django web framework.</p>-->
 
-        <h2><center><br></br><br></br>Coming Soon My Friends!</center></h2>
+        <h2><center><br></br>Coming Soon My Friends!</center></h2>
         </p>
-        <br>
-        <br>
-        <br>
-        <br>
-<center><h2>Please, type in the name of the quiz you would like to take ("Account Administration" or "UNIX Commands" then click on submit.</h2></center>
-<br>
-<br>
-<br>
-<br>
+<center><h2>Please, type in the number that corresponds to the quiz that you would like to take then click submit.</h2></center>
+[1] Account Administration
+[2] UNIX Commands
+[3] Networking
 
-<center>
-<form method="post" action=".">
-    {% csrf_token %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form method="POST" action="/quiz/">
+{% csrf_token %}
   <table>{{ form.as_table }}</table>
-   <p><label for="id_name"> Type Quiz Name:</label>
+   <p><label for="id_name"> Type Your Answer:</label>
 <input class="textinput textInput form-control" id="id_name" maxlength="100" name="textfield" type="text" /></p>
   <input type="submit" value="Submit" />
 </form>
-</center>
-
-
         </div>
       </div>
     </div>
