@@ -27,18 +27,21 @@ def quiz_selection(request):
 def git_quiz(request):
     if request.method == 'POST':
         gils_answer = request.POST.get('textfield', None)
-    elif request.method != 'POST':
-        gils_answer == "None"
-    if gils_answer == '1':
-        temp_latest_question_list = Question.objects.filter(category="Account Administration")
-    if gils_answer == '2':
-        temp_latest_question_list = Question.objects.filter(category="UNIX Commands")
-    if gils_answer == '3':
-        temp_latest_question_list = Question.objects.filter(category="Networking")
-    latest_question_list = temp_latest_question_list
-
-
-    #value = smart_text(user_answer)
+        if gils_answer == '1':
+            temp_latest_question_list = Question.objects.filter(category="Account Administration")
+        if gils_answer == '2':
+                temp_latest_question_list = Question.objects.filter(category="UNIX Commands")
+        if gils_answer == '3':
+                temp_latest_question_list = Question.objects.filter(category="Networking")
+        if temp_latest_question_list:
+            latest_question_list = temp_latest_question_list
+        else:
+            latest_question_list = Question.objects.order_by('?')
+        context = {'gils_answer': gil_answer, 'latest_question_list': latest_question_list}
+        return render(request, 'redhat_sensei_quiz/index.html', context)
+    elif (request.method != 'POST'):
+        context = {'latest_question_list': latest_question_list}
+        return render(request, 'redhat_sensei_quiz/index.html', context)
     context = {'gils_answer': gils_answer, 'latest_question_list': latest_question_list}
     return render(request, 'redhat_sensei_quiz/index.html', context)
 
