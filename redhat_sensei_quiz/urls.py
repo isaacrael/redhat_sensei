@@ -7,8 +7,7 @@ urlpatterns = [
     # ex: /quiz/
     url(r'^quiz_selection/', views.quiz_selection, name='quiz_selection'),
     url(r'^$', views.git_quiz, name='index'),
-    url(r'^account_administration/', views.account_administration, name='account_administration'),
-#    url(r'^resources/', views.git_resources, name='resources'),
+    url(r'^resources/', views.resources, name='resources'),
     # ex: /quiz/5/
     url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
     # ex: /quiz/5/results/
