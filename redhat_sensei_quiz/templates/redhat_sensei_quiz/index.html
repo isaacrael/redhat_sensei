@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xml:lang="en" lang="en">
 <head>
 <title>Red Hat Linux Sensei Quiz</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -38,12 +38,16 @@
           <h2><strong>Welcome </strong> To Red Hat Linux Sensei</h2>
           {% endif %}
 
-  <!--      <p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
-        The application is designed and developed by Gil Rael using the Python Django web framework.</p>-->
 
-        <p><h2><center><br></br><br></br>Click On Question Below!</center></h2>
-        </p>
-
+ {% if gils_answer = "1" %}
+    <p><h2><center>Red Hat Linux Account Administration Quiz<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if gils_answer = "2" %}
+    <p><h2><center>Red Hat Linux UNIX Commands Quiz<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if gils_answer = "3" %}
+    <p><h2><center>Red Hat Linux Networking Quiz<br>Click On Question Below</center></h2></p>
+ {% endif %}
  {% if request.user.is_authenticated %}
     {% if latest_question_list %}
     <ul>
