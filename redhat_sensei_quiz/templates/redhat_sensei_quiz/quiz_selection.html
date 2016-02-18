@@ -16,6 +16,7 @@
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
       <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
       <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/resources/"><em>R</em>ESOURCES</em></a></li>
       <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
        {% else %}
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
@@ -44,11 +45,18 @@ and click on the Sensei Quiz menu option to take your quiz.
 </h2></center></p>
 <ul>
 <li>[1] User Management</li>
-<li>[2] UNIX Commands</li>
-<li>[3] Networking</li>
+<li>[2] System Basics</li>
+<li>[3] Security & Identity</li>
+<li>[4] Basic Configuration</li>
+<li>[5] Jobs & Services</li>
+<li>[6] Kernel, Boot, & Hardware</li>
+<li>[7] Software Management</li>
+<li>[8] Filesystem, Volumes, & Disks</li>
+<li>[9] Networking</li>
+<li>[10] Resource Management</li>
+<li>[11] UNIX Commands</li>
 </ul>
 
-<h2> {{ gils_answer }} </h2>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <form method="POST" action="/quiz_selection/">

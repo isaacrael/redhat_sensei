@@ -16,6 +16,7 @@
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
       <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
       <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/resources/"><em>R</em>ESOURCES</em></a></li>
       <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
        {% else %}
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
@@ -38,16 +39,43 @@
           <h2><strong>Welcome </strong> To Red Hat Linux Sensei</h2>
           {% endif %}
 
+<!-- code below creates custom Red Hat Linux message based on user_response in Sensei Quiz Selection page-->
 
- {% if gils_answer = "1" %}
-    <p><h2><center>Red Hat Linux User Management Quiz<br>Click On Question Below</center></h2></p>
+ {% if user_response = "1" %}
+    <p><h2><center>Red Hat Linux User Management<br>Click On Question Below</center></h2></p>
  {% endif %}
- {% if gils_answer = "2" %}
-    <p><h2><center>Red Hat Linux UNIX Commands Quiz<br>Click On Question Below</center></h2></p>
+ {% if user_response = "2" %}
+    <p><h2><center>Red Hat Linux System Basics<br>Click On Question Below</center></h2></p>
  {% endif %}
- {% if gils_answer = "3" %}
-    <p><h2><center>Red Hat Linux Networking Quiz<br>Click On Question Below</center></h2></p>
+ {% if user_response = "3" %}
+    <p><h2><center>Red Hat Linux Security & Identity<br>Click On Question Below</center></h2></p>
  {% endif %}
+ {% if user_response = "4" %}
+    <p><h2><center>Red Hat Linux Basic Configuration<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "5" %}
+    <p><h2><center>Red Hat Linux Jobs & Services<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "6" %}
+    <p><h2><center>Red Hat Linux Kernel, Boot, & Hardware<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "7" %}
+    <p><h2><center>Red Hat Linux Software Management<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "8" %}
+    <p><h2><center>Red Hat Linux Filesystem, Volumes, & Disks<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "9" %}
+    <p><h2><center>Red Hat Linux Networking<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "10" %}
+    <p><h2><center>Red Hat Linux Resource Management<br>Click On Question Below</center></h2></p>
+ {% endif %}
+ {% if user_response = "11" %}
+    <p><h2><center>Red Hat Linux UNIX Commands<br>Click On Question Below</center></h2></p>
+ {% endif %}
+
+
  {% if request.user.is_authenticated %}
     {% if latest_question_list %}
     <ul>

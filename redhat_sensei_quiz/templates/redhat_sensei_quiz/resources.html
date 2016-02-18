@@ -1,128 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Git Resources</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<style>
-a:link {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:visited {
-    color: blue;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:hover {
-    color: red;
-    background-color: transparent;
-    text-decoration: underline;
-}
-a:active {
-    color: purple;
-    background-color: transparent;
-    text-decoration: underline;
-}
-</style>
-
+<title>Red Hat Linux Sensei</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-<div class="w3-container w3-red">
-{% if request.user.is_authenticated %}
-  <h1>Welcome {% if request.user.first_name %}
-      {{ request.user.first.name }}
-      {% else %}
-      {{ request.user.username }}
-      {% endif %}
-      - To Git Ur Done<br>
-      <img src="/static/images/git.png" style="width:50px;height:50px;">
-  </h1>
-{% else %}
-<h1> Welcome To Git Ur Done</h1> <img src="/static/images/git.png" style="width:50px;height:50px;">
-{% endif %}
-</div>
+<div id="wrapper">
+  <div id="header">
+    <h1><span>RED HAT LINUX SENSEI</span></h1>
+  </div>
+  <div id="nav">
+       {% if request.user.is_authenticated %}
+    <ul>
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
+      <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/resources/"><em>R</em>ESOURCES</em></a></li>
+      <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
+       {% else %}
+      <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
+      <li><a href="http://localhost:8000/account/register/"><em>R</em>EGISTER</a></li>
+      <li><a href="http://localhost:8000/account/login/"><em>L</em>OGIN</a></li>
+       {% endif %}
+    </ul>
+  </div>
+  <div id="body">
+    <div id="content">
+      <div class="i">
+          {% if request.user.is_authenticated %}
+        <h2><strong>Welcome {% if request.user.first_name %}</strong> To Red Hat Linux Sensei</h2>
+              {{ request.user.first.name }}
+              {% else %}
+              {{ request.user.username }}
+              {% endif %}
+          {% else %}
+          <h2><strong>Welcome </strong> To Red Hat Linux Sensei</h2>
+          {% endif %}
+        <h2><p>Videos<br><br><br><br>
 
 
-<div class="w3-container w3-yellow">
-<img src="/static/images/dj.png" style="width:25" align="right">
-<br>
-{% if request.user.is_authenticated %}
-<h3>
-<a href="http://localhost:8000/" target="_blank">About</a>   <a href="http://localhost:8000/quiz/" target="_blank">Quiz</a>  <a href="http://localhost:8000/quiz/resources/" target="_blank">Resources</a>  <a href="http://localhost:8000/account/logout" target="_blank">Logout</a>
-</h3>
-{% else %}
-<h3>
-<a href="http://localhost:8000/" target="_blank">About</a>   <a href="http://localhost:8000/account/register" target="_blank">Register</a>    <a href="http://localhost:8000/account/login/"target="_blank" >Login</a>
-</h3>
-{% endif %}
-<br>
-<br>
-<br>
-<br>
-<h3><center>Git Videos & Presentations</center></h3>
-<br>
-<br><ul><li><a href="https://www.youtube.com/watch?v=idLyobOhtO4 target="_blank">Linus Torvalds Presentation @ Google On Git</a></li>
-<br>
-<br><li><a href="https://www.youtube.com/watch?v=U8GBXvdmHT4 target="_blank">Basics Of Git & Github</a></li>
-<br>
-<br><li><a href="https://www.youtube.com/watch?v=OFkgSjRnay4 target="_blank">O'Reilly Webcast: Git in One Hour</a></li>
-<br></ul>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h3><center>Git Websites</center></h3>
-<br>
-<br><ul><li><a href="https://git-scm.com/"_blank">Git SCM</a></li>
-<br></ul>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
+        Websites
+        </p></h2>
+        <br>
+        <br>
+        <br>
+        </div>
+      </div>
+    </div>
+    <div id="copyright"> &copy;  Copyright 2016 | Web Design & Software Application Development By <a target=_blank href="http://www.gilrael.com">Gil Rael</a></div>
+  </div>
+  <div id="footer"> </div>
 </div>
-<div class="w3-container w3-blue">
-  <h5>
-
-  </h5>
-  <p><center>Web Design & Application Development By - <a href="http://facebook.com/gil.rael.37/" target="_blank">Gil Rael</a><br>
-Software Developed By A Nerd For Nerds</center></p>
-</div>
-</head>
 </body>
 </html>
-
