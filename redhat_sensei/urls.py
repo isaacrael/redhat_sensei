@@ -8,11 +8,12 @@ urlpatterns = [
     url(r'^account/', include('registration.backends.default.urls')),
     url(r'^$', 'redhat_sensei_quiz.views.index', name='index'),
 #    url(r'^results/', 'redhat_sensei_quiz.views.results', name='results'),
-    url(r'^account_administration/', 'redhat_sensei_quiz.views.account_administration', name='account_administration'),
+#    url(r'^account_administration/', 'redhat_sensei_quiz.views.account_administration', name='account_administration'),
     url(r'^quiz_selection/', 'redhat_sensei_quiz.views.quiz_selection', name='quiz_selection'),
 #    url(r'^quiz_selection/', include('redhat_sensei_quiz.urls', namespace="redhat_sensei_quiz")),
     url(r'^quiz/', include('redhat_sensei_quiz.urls', namespace="redhat_sensei_quiz")),
     url(r'^quiz/', 'redhat_sensei_quiz.views.git_quiz', name='git_quiz'),
+    url(r'^resources/', 'redhat_sensei_quiz.views.resources', name='resources'),
     url(r'^admin/', include(admin.site.urls)),
 
 
