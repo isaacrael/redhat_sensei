@@ -37,7 +37,7 @@ def git_quiz(request):
     if gils_answer == 'None':
         return render(request, 'redhat_sensei_quiz/index.html')
     if gils_answer == '1':
-        latest_question_list = Question.objects.filter(category="Account Administration")
+        latest_question_list = Question.objects.filter(category="User Management")
     if gils_answer == '2':
         latest_question_list = Question.objects.filter(category="UNIX Commands")
     if gils_answer == '3':
