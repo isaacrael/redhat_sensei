@@ -16,6 +16,7 @@
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
       <li><a href="http://localhost:8000/quiz_selection/"><em>S</em>ENSEI <em>Q</em>UIZ <em>S</em>ELECTION</a></li>
       <li><a href="http://localhost:8000/quiz/"><em>S</em>ENSEI <em>Q</em>UIZ</a></li>
+      <li><a href="http://localhost:8000/resources/"><em>R</em>ESOURCES</em></a></li>
       <li><a href="http://localhost:8000/account/logout/"><em>L</em>OGOUT</a></li>
        {% else %}
       <li class="first"><a href="http://localhost:8000/"><em>A</em>BOUT</a></li>
@@ -27,9 +28,17 @@
   <div id="body">
     <div id="content">
       <div class="i">
-        <h2><strong>Welcome</strong> To Red Hat Linux Sensei</h2>
-        <p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
-        The application is designed and developed by Gil Rael using the Python Django web framework.</p>
+          {% if request.user.is_authenticated %}
+        <h2><strong>Welcome {% if request.user.first_name %}</strong> To Red Hat Linux Sensei</h2>
+              {{ request.user.first.name }}
+              {% else %}
+              {{ request.user.username }}
+          {% endif %}
+          {% else %}
+          <h2><strong>Welcome </strong> To Red Hat Linux Sensei</h2>
+          {% endif %}
+        <h2><p>Red Hat Linux Sensei is an educational web application designed to test and improve Red Hat Linux system administration skills.
+        The application is designed and developed by Gil Rael using the Python Django web framework.</p></h2>
         <br>
         <br>
         <br>
