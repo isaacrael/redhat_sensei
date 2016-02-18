@@ -9,6 +9,7 @@ from . models import Answer, Question
 import random
 import datetime
 from django.utils.encoding import *
+from . user_response import gils_answer
 
 
 
@@ -22,7 +23,40 @@ def index(request):
     return render(request, 'index.html')
 
 def quiz_selection(request):
+    if request.method == 'POST':
+        user_response = request.POST.get('textfield', None)
+        user_response = smart_text(user_response)
+        f = open('redhat_sensei_quiz/user_response.py', 'w')
+        f.write('gils_answer = ' + repr(str(user_response)))
+        f.close()
+
+    #request.session['gils_answer'] = textfield
+    #else:
+    #    gils_answer = '1'
+    #context = {'gils_answer': gils_answer}
     return render(request, 'redhat_sensei_quiz/quiz_selection.html')
+
+def git_quiz(request):
+    #gils_answer = request.session.get('gils_answer')
+    #request.session['gils_answer'] = gils_answer
+    #gils_answer = smart_text(gils_answer)
+    #request.session['gils_answer'] = textfield
+    #gils_answer = request.session.get('gils_answer')
+    #str(gils_answer)
+    #gils_answer = smart_text(gils_answer)
+    if gils_answer == 'None':
+        return render(request, 'redhat_sensei_quiz/index.html')
+    if gils_answer == '1':
+        latest_question_list = Question.objects.filter(category="Account Administration")
+    if gils_answer == '2':
+        latest_question_list = Question.objects.filter(category="UNIX Commands")
+    if gils_answer == '3':
+        latest_question_list = Question.objects.filter(category="Networking")
+    context = {'gils_answer': gils_answer, 'latest_question_list': latest_question_list}
+    return render(request, 'redhat_sensei_quiz/index.html', context)
+
+"""
+
 
 def git_quiz(request):
     if request.method == 'POST':
@@ -44,6 +78,8 @@ def git_quiz(request):
         return render(request, 'redhat_sensei_quiz/index.html', context)
     context = {'gils_answer': gils_answer, 'latest_question_list': latest_question_list}
     return render(request, 'redhat_sensei_quiz/index.html', context)
+
+"""
 
 def account_administration(request):
     account_administration_question_list = Question.objects.filter(category="Account Administration")
